@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Holiday Pay Calculator</title>
+    <link rel="stylesheet" href="../css/holidayPayCalculator.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<form id="calculate-form" method="get" oninput="updateDays()">
+    <label for="salary">Средняя зарплата за 12 месяцев:</label>
+    <input type="number" id="salary" name="salary">
+    <span id="salary-error"></span><br><br>
+    <label for="days">Количество дней отпуска:</label>
+    <input type="number" id="days" name="days">
+    <span id="days-message"></span><br><br>
+    <label for="startDate">Дата начала отпуска:</label>
+    <input type="date" id="startDate" name="startDate" onchange="updateDays(); updateEndDateMin(); updateEndDateDisabled()"><br><br>
+    <label for="endDate">Дата окончания отпуска:</label>
+    <input type="date" id="endDate" name="endDate" min="" disabled onchange="updateDays()">
+    <span id="endDate-error"></span>
+    <button>Рассчитать</button>
+    <!-- <h1>Сумма отпускных: <span th:text="${result}"></span></h1>-->
+    <h1>Сумма отпускных: <span id="result"></span></h1>
+    <p style="font-size: 12px;">*При выборе конкретных дат количество дней отпуска будет выставлено автоматически, а расчет отпускных произойдет с учётом праздников</p>
+</form>
+<script src="../js/holidayPayForm.js"></script>
+</body>
+</html>
